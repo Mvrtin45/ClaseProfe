@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 
 @Component({
@@ -38,8 +38,16 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
   irPagina(){
-    //crear el codigo dque quiera de la logica
-    this.router.navigate(['/agregar']);
+    //CREAR VARIABLE DE CONTEXTO
+    let navigationextras: NavigationExtras = {
+      state: {
+        com : this.comuna,
+        ed : this.edad,
+        nom : this.nombre
+      }
+    }
+    //crear el codigo que quiera de la logica
+    this.router.navigate(['/agregar'], navigationextras);
 
   }
 
